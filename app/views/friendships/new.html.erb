@@ -1,0 +1,13 @@
+<h1>Friend Requests</h1>
+<% if @requests.empty? %>
+  Nothing here...
+<% else %>
+  <% @requests.each do |request| %>
+    <ul>
+      <li> 
+        <%= link_to User.find(request.requester_id).username, user_path(request.requester_id) %> | 
+        <%= link_to "Accept request", friendships_path(friend_id: request.requester_id), method: :post %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

@@ -1,0 +1,39 @@
+Create Post:<br>
+<%= form_with model: @post, local: true do |f| %>
+  <br>
+  <%= f.label     :content %><br>
+  <%= f.text_area :content %><br>
+  <br>
+  <%= f.submit "Post" %>
+<% end %>
+<h3>Timeline:</h3>
+<% if @timeline.any? %>
+  <% @timeline.each do |post| %>
+  =============================<br>
+    <strong><%= post.user.username %> posts:</strong> <%= post.content %><br>
+    <%= form_with model: post, method: :patch do |f|  %>
+      <%= f.submit "Like" %> Likes: <%= post.likes %>
+    <% end %>
+    <%# display comments on user post %>
+    <br>
+    <% if post.comments.any? %>
+      <h4>Comments:</h4>
+        <% post.comments.each do |comment| %>
+        ---------------------------<br>
+          <strong><%= link_to comment.user.username, user_path(comment.user) %> comments:</strong> <%= comment.content %><br>
+          ---------------------------<br>
+        <% end %>
+      
+    <% end %>
+      <%= form_with model: @comment, local: true do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.label :content, "Your comment" %><br>
+        <%= f.text_area :content %><br>
+
+        <%= f.submit "Comment" %><br>
+      <% end %>
+    <br>=============================<br>
+  <% end %>
+<% else %>
+  Nothing here!
+<% end %>
