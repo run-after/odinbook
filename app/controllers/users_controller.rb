@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.all
     @comment = current_user.comments.build
+    @like = current_user.likes.build
   end
 
   def index

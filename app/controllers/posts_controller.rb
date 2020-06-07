@@ -13,16 +13,16 @@ class PostsController < ApplicationController
     end
   end
 
-  def update
-    Post.find(params[:id]).like
-    redirect_back(fallback_location: user_path(current_user))
-  end
-
   def index
-    @post = current_user.posts.build
-    @timeline = Post.where(["user_id = ?", current_user.id])
-    
     @comment = current_user.comments.build
+    @like = current_user.likes.build
+    @timeline = current_user.posts.map{|post| post }
+
+    current_user.friends.each do |friend|
+      friend.posts.each {|post| @timeline << post }
+    end 
+    @timeline = @timeline.sort_by(&:created_at)
+    @post = current_user.posts.build
   end
 
   private

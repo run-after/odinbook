@@ -1,7 +1,7 @@
 Create Post:<br>
 <%= form_with model: @post, local: true do |f| %>
   <br>
-  <%= f.label     :content %><br>
+  <%= f.label     :content, "Your post:" %><br>
   <%= f.text_area :content %><br>
   <br>
   <%= f.submit "Post" %>
@@ -11,9 +11,9 @@ Create Post:<br>
   <% @timeline.each do |post| %>
   =============================<br>
     <strong><%= post.user.username %> posts:</strong> <%= post.content %><br>
-    <%= form_with model: post, method: :patch do |f|  %>
-      <%= f.submit "Like" %> Likes: <%= post.likes %>
-    <% end %>
+    <!--Like button-->
+    <%= render 'layouts/like_button', post: post %>
+    Likes: <%= post.likes.count %>
     <%# display comments on user post %>
     <br>
     <% if post.comments.any? %>
@@ -23,8 +23,8 @@ Create Post:<br>
           <strong><%= link_to comment.user.username, user_path(comment.user) %> comments:</strong> <%= comment.content %><br>
           ---------------------------<br>
         <% end %>
-      
     <% end %>
+    
       <%= form_with model: @comment, local: true do |f| %>
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.label :content, "Your comment" %><br>

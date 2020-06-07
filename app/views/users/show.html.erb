@@ -11,6 +11,10 @@ Friends:<br>
   <% @posts.each do |post| %>
   =============================<br>
     <strong><%= post.user.username %> posts:</strong> <%= post.content %>
+    <!--Like button-->
+    <br>
+    <%= render 'layouts/like_button', post: post %>
+    Likes: <%= post.likes.count %>
     <%# display comments on user post %>
     <% if post.comments.any? %>
       <h4>Comments:</h4>
