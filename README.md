@@ -1,24 +1,11 @@
-# README
+ODINBOOK
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the final project for the Rails section of The Odin Project
+(https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
-Things you may want to cover:
+This project doesn't focus on stying, just the back end.
 
-* Ruby version
+In this project I modeled Users, Posts, Comments, Likes, Friend Requests, and Friendships. Assosciated all of the models, and created all the views/controllers to display the information.
 
-* System dependencies
+I also used Active Storage to attach an avatar photo.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

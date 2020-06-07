@@ -12,7 +12,9 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, :through => :friendships
 
-  def befriend(user)
+  has_one_attached :avatar
+
+  def befriend(user) ### Am I using this?
     self.friends << user
     user.friends << self
   end
