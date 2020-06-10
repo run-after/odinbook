@@ -1,7 +1,17 @@
-<%= image_tag @user.avatar.variant(resize:"400x400") %><br>
 ----------------------------------------------<br>
 <%= @user.username %>'s wall<br>
 ---------------------------------------------<br>
+<% if @user.avatar.attachment %>
+    <%= image_tag @user.avatar.variant(resize:"400x400") %><br>
+<% else %>
+  <% if @user.uid %>
+    <%= image_tag "#{@user.username.split(' ').join}.png" %><br>
+  <% else %>
+    <% if current_user.id == @user.id %>
+      <%= link_to "Add image", edit_user_registration_path %><br>
+    <% end %>
+  <% end %>
+<% end %>
 Friends:<br>
 <% @user.friends.each do |friend| %> 
   <%= friend.username %><br>
