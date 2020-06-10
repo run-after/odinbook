@@ -2,6 +2,7 @@ class User < ApplicationRecord
   require 'open-uri'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   devise :omniauthable, omniauth_providers: %i[facebook]
 
   has_many :posts, :dependent => :destroy
@@ -16,8 +17,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar, :dependent => :destroy
 
-  devise :omniauthable, omniauth_providers: %i[facebook]
-
   def befriend(user)
     self.friends << user
     user.friends << self
@@ -27,14 +26,9 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.username = auth.info.name   # assuming the user model has a name
+      user.username = auth.info.name
       download = open(auth.info.image)
       IO.copy_stream(download, "app/assets/images/#{user.username.split(' ').join}.png")
-      #user.avatar.attach(io: File.open('/app/assets/images/'), filename: "#{user.username.split(' ').join}.png")
-      #user.avatar = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
-      # uncomment the line below to skip the confirmation emails.
-      # user.skip_confirmation!
     end
   end
 end
