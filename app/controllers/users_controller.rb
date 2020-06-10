@@ -5,9 +5,21 @@ class UsersController < ApplicationController
     @posts = @user.posts.all
     @comment = current_user.comments.build
     @like = current_user.likes.build
+    set_image
   end
 
   def index
     @users = User.all
   end
+
+  private
+    def set_image
+      if @user.avatar.attachment
+        @image = @user.avatar.variant(resize:"400x400")#when moving from view to controller - will need this
+      else
+        if @user.uid
+          @image = "#{@user.username.split(' ').join}.png"
+        end
+      end
+    end
 end
