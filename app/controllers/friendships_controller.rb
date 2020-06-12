@@ -9,9 +9,7 @@ class FriendshipsController < ApplicationController
     # deletes the friend request
     current_user.friend_requests.find_by(requester_id: params[:friend_id]).delete
     # refreshes page
+    flash[:success] = "Friend added!"
     redirect_back(fallback_location: user_path(current_user))
-  end
-
-  def destroy
   end
 end

@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      puts "Comment success"
+      flash[:success] = "Comment created!"
       redirect_back(fallback_location: user_path(current_user))
-    ### want to reload without moving page all the way up
     else
-      puts "comment fail"
+      flash[:alert] = "Error creating comment"
+      redirect_back(fallback_location: user_path(current_user))
     end
   end
   private

@@ -1,0 +1,8 @@
+<% if post.comments.any? %>
+  <strong>Comments:</strong><br>
+    <% post.comments.each do |comment| %>
+      ---------------------------<br>
+      <strong><%= link_to comment.user.username, user_path(comment.user) %> comments:</strong> <%= comment.content %><br>
+      ---------------------------<br>
+  <% end %>
+<% end %>

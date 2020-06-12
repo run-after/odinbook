@@ -1,39 +1,5 @@
-Create Post:<br>
-<%= form_with model: @post, local: true do |f| %>
-  <br>
-  <%= f.label     :content, "Your post:" %><br>
-  <%= f.text_area :content %><br>
-  <br>
-  <%= f.submit "Post" %>
-<% end %>
-<h3>Timeline:</h3>
-<% if @timeline.any? %>
-  <% @timeline.each do |post| %>
-  =============================<br>
-    <strong><%= post.user.username %> posts:</strong> <%= post.content %><br>
-    <!--Like button-->
-    <%= render 'layouts/like_button', post: post %>
-    Likes: <%= post.likes.count %>
-    <%# display comments on user post %>
-    <br>
-    <% if post.comments.any? %>
-      <strong>Comments:</strong><br>
-        <% post.comments.each do |comment| %>
-        ---------------------------<br>
-          <strong><%= link_to comment.user.username, user_path(comment.user) %> comments:</strong> <%= comment.content %><br>
-          ---------------------------<br>
-        <% end %>
-    <% end %>
-    
-      <%= form_with model: @comment, local: true do |f| %>
-        <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.label :content, "Your comment" %><br>
-        <%= f.text_area :content %><br>
+<%= render 'post_form' %>
 
-        <%= f.submit "Comment" %><br>
-      <% end %>
-    <br>=============================<br>
-  <% end %>
-<% else %>
-  Nothing here!
-<% end %>
+<h3>Timeline:</h3>
+
+<%= render 'layouts/post_feed' %>

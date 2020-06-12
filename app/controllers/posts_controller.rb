@@ -4,23 +4,27 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      puts "SUCCESS"### set up flash message
-      
+      flash[:success] = "Post created!"
+      #reload page
       redirect_back(fallback_location: user_path(current_user))
     else
-      puts "FAILED"#### will need to render error message
+      flash.now[:alert] = "Error creating post"
+      render :index
     end
   end
 
   def index
     @comment = current_user.comments.build
     @like = current_user.likes.build
-    @timeline = current_user.posts.map{|post| post }
-
+    # Add user posts
+    @posts = current_user.posts.map{|post| post }
+    # Add user friends posts
     current_user.friends.each do |friend|
-      friend.posts.each {|post| @timeline << post }
-    end 
-    @timeline = @timeline.sort_by(&:created_at)
+      friend.posts.each {|post| @posts << post }
+    end
+    # Sort posts by time created 
+    @posts = @posts.sort_by(&:created_at).reverse!
+    # Starts a new post
     @post = current_user.posts.build
   end
 

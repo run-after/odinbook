@@ -1,0 +1,22 @@
+<% if @posts && @posts.any? %>
+
+  <% @posts.each do |post| %>
+  =============================<br>
+    <strong><%= post.user.username %> posts:</strong> 
+    <%= post.content %><br>
+
+    <%= render 'layouts/like_button', post: post %>
+
+    Likes: <%= post.likes.count %>
+
+    <br>
+    
+    <%= render 'layouts/comments_feed', post: post %>
+    
+    <%= render 'layouts/comment_form', post: post %>
+    <br>=============================<br>
+  <% end %>
+  
+<% else %>
+  Nothing here!
+<% end %>

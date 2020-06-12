@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   private
     def set_image
       if @user.avatar.attachment
-        @image = @user.avatar.variant(resize:"400x400")#when moving from view to controller - will need this
+        @image = @user.avatar.variant(resize:"400x400")
       else
         if @user.uid
           @image = "#{@user.username.split(' ').join}.png"
