@@ -16,10 +16,11 @@ class UsersController < ApplicationController
     def set_image
       if @user.avatar.attachment
         @image = @user.avatar.variant(resize:"400x400")
-      else
-        if @user.uid
-          @image = "#{@user.username.split(' ').join}.png"
-        end
+      # Sets @image from Facebook download locally
+      #else
+      #  if @user.uid
+      #    @image = "#{@user.username.split(' ').join}.png"
+      #  end
       end
     end
 end
