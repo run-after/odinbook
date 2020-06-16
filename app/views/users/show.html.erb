@@ -3,12 +3,15 @@
 ---------------------------------------------<br>
 <% if @image %>
   <%= image_tag @image %><br>
+  <% if current_user == @user %>
+    <%= link_to "Edit image", edit_user_registration_path %><br>
+  <% end %>
 <% else %>
   <% if current_user == @user %>
     <%= link_to "Add image", edit_user_registration_path %><br>
   <% end %>
 <% end %>
-
+<br>
 Friends:<br>
 <% @user.friends.each do |friend| %> 
   <%= friend.username %><br>
