@@ -8,6 +8,13 @@ class UsersController < ApplicationController
     set_image
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.avatar.attach(params[:user][:avatar])
+    #reload page
+    redirect_back(fallback_location: user_path(current_user))
+  end
+
   def index
     @users = User.all
   end
@@ -16,11 +23,6 @@ class UsersController < ApplicationController
     def set_image
       if @user.avatar.attachment
         @image = @user.avatar.variant(resize:"400x400")
-      # Sets @image from Facebook download locally
-      #else
-      #  if @user.uid
-      #    @image = "#{@user.username.split(' ').join}.png"
-      #  end
       end
     end
 end

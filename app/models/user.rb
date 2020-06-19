@@ -27,9 +27,6 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.name
-      # Downloads profile picture from Facebook locally
-      #download = open(auth.info.image)
-      #IO.copy_stream(download, "app/assets/images/#{user.username.split(' ').join}.png")
     end
   end
 end
