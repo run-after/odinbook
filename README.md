@@ -13,3 +13,5 @@ I used Omniauth to allow someone to signup for the app using existing Facebook c
 
 I also used Active Storage to attach an avatar photo.
 
+I used AWS S3 via Active Storage to attach avatar photo in production.
+
