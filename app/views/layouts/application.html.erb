@@ -10,9 +10,14 @@
   </head>
 
   <body>
+  <header>
+    <h1 class="bold logo"><%= link_to "OdinBook", root_path %></h1>
+
     <% if current_user %>
       <%= render 'layouts/header' %>
     <% end %>
+  </header>
+  <main>
     <% if flash.any? %>
       <br>
       <div>
@@ -23,5 +28,6 @@
       <br>
     <% end %>
     <%= yield %>
+  </main>
   </body>
 </html>

@@ -1,7 +1,11 @@
-<h1><%= link_to current_user.username, user_path(current_user) %></h1> 
-<%= link_to "Log out", destroy_user_session_path, method: :delete %><br><br>
-<%= link_to "Home", root_path %><br>
-<%= link_to "All users", users_path %><br>
-<% if current_user.friend_requests.any? %>
-  <%= link_to "Friend requests", new_friendship_path %><br>
-<% end %>
+<div class="menu">
+  <a><%= link_to "All users", users_path %></a>
+  <a><%= link_to "Log out", destroy_user_session_path, method: :delete %></a>
+
+  <% if current_user.friend_requests.any? %>
+    <a class="request"><%= link_to "Friend requests", new_friendship_path %></a>
+  <% end %>
+   
+</div>
+
+<h4 class="user"><%= link_to current_user.username, user_path(current_user) %></h4>
