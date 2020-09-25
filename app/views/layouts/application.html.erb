@@ -4,7 +4,7 @@
     <title>Odinbook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,16 +18,17 @@
     <% end %>
   </header>
   <main>
-    <% if flash.any? %>
-      <br>
-      <div>
-        <% flash.each do |type, msg| %>
-          <em><%= msg %></em> 
-        <% end %>
-      </div>
-      <br>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <% if flash.any? %>
+        <div class="flash-message">
+          <% flash.each do |type, msg| %>
+            <p class="<%= type %>"><%= msg %></p> 
+          <% end %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    
   </main>
   </body>
 </html>
