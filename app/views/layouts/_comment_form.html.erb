@@ -1,7 +1,5 @@
 <%= form_with model: @comment do |f| %>
   <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.label :content, "Your comment" %><br>
-  <%= f.text_area :content %><br>
-  
-  <%= f.submit "Comment" %><br>
+  <%= f.text_area :content, :placeholder => "Write a comment" %>
+  <%= f.submit "Comment", :class => "btn" %>
 <% end %>

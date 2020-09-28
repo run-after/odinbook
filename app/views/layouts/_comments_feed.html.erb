@@ -1,8 +1,16 @@
 <% if post.comments.any? %>
-  <strong>Comments:</strong><br>
+  <h4 class="title">Comments:</h4>
     <% post.comments.each do |comment| %>
-      ---------------------------<br>
-      <strong><%= link_to comment.user.username, user_path(comment.user) %> comments:</strong> <%= comment.content %><br>
-      ---------------------------<br>
+      <div class="comment">
+        <div class="comment-img">
+        <% if comment.user.avatar %>
+          <%= image_tag comment.user.avatar %>
+        <% end %>
+        </div>
+        <div class="comment-content">
+          <%= link_to comment.user.username, user_path(comment.user) %>
+          <p><%= comment.content %></p>
+        </div>
+      </div>
   <% end %>
 <% end %>

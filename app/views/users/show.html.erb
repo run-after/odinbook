@@ -1,15 +1,32 @@
-----------------------------------------------<br>
-<%= @user.username %>'s wall<br>
----------------------------------------------<br>
-<% if @image %>
-  <%= image_tag @image %><br>
-<% end %>
-<%= render 'avatar_upload' %>
-<br>
-Friends:<br>
-<% @user.friends.each do |friend| %> 
-  <%= friend.username %><br>
-<% end %>
+<div class="banner">
+  <% if @image %>
+    <%= image_tag @image %>
+  <% end %>
 
-<h3>Posts</h3>
-<%= render 'layouts/post_feed' %>
+  <h1>
+    <%= @user.username %>
+  </h1>
+  <% if current_user == @user %>
+    <%= render 'avatar_upload' %>
+  <% end %>
+</div>
+
+<div class="user-show">
+  <div class="friends">
+    <h1 class="title">
+      Friends:
+    </h1>
+    <% @user.friends.each do |friend| %>
+      <div class="friend"> 
+        <% if friend.avatar %>
+          <%= image_tag friend.avatar %>
+        <% end %>
+        <%=link_to friend.username, user_path(friend) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="posts">
+    <h1 class="title"> Posts: </h1>
+    <%= render 'layouts/post_feed' %>
+  </div>
+</div>

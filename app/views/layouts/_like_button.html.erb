@@ -1,6 +1,6 @@
 <% unless current_user.likes.any?{ |like| like['post_id'] == post.id } %>
       <%= form_with model: @like, url: likes_path do |f|  %>
         <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.submit "Like" %> 
+        <%= f.submit "Like", :class => "like-btn btn" %> 
       <% end %>
     <% end %>

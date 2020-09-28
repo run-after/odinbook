@@ -1,4 +1,15 @@
-<%= form_with(model: @user, method: :patch, local: true) do |f| %>
-  <%= f.file_field :avatar %><br>
-  <%= f.submit "Update avatar" %>
-<% end %>
+<div class="avatar-update">
+  Update image
+  <%= form_with(model: @user, method: :patch, local: true) do |f| %>
+  <div class="filler">
+    <label class="btn browse-btn">
+      Browse...
+      <span style="display: none;">
+        <%= f.file_field :avatar %>
+      </span>
+    </label>
+  </div>
+    <%#= f.file_field :avatar %>
+    <%= f.submit "Update avatar", :class => "btn" %>
+  <% end %>
+</div>
