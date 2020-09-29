@@ -1,4 +1,4 @@
-<%= form_with model: @post, local: true do |f| %>
+<%= form_with model: @post, :class => 'new-post-form', local: true do |f| %>
   <%= f.text_area :content, :placeholder => "Create Post" %>
   <%= f.submit "Post", :class => "btn" %>
 <% end %>
