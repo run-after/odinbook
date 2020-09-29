@@ -15,3 +15,4 @@ I also used Active Storage to attach an avatar photo.
 
 I used AWS S3 via Active Storage to attach avatar photo in production.
 
+I used a basic styling to make it reasonable to look at, but didn't focus too heavily on it.
