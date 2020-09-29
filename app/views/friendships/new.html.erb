@@ -1,13 +1,17 @@
-<h1>Friend Requests</h1>
-<% if @requests.empty? %>
-  Nothing here...
-<% else %>
-  <% @requests.each do |request| %>
+<div class="friend-requests">
+  <h1 class="title">Friend Requests</h1>
+  <% if @requests.empty? %>
+    Nothing here...
+  <% else %>
     <ul>
-      <li> 
-        <%= link_to User.find(request.requester_id).username, user_path(request.requester_id) %> | 
-        <%= link_to "Accept request", friendships_path(friend_id: request.requester_id), method: :post %>
-      </li>
+      <% @requests.each do |request| %>
+        
+          <li class="request"> 
+            <%= link_to User.find(request.requester_id).username, user_path(request.requester_id) %> | 
+            <%= link_to "Accept request", friendships_path(friend_id: request.requester_id), method: :post %>
+          </li>
+      
+      <% end %>
     </ul>
   <% end %>
-<% end %>
+  </div>
