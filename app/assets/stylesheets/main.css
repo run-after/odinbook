@@ -433,7 +433,6 @@ h2 {
 }
 
 /* HOME */
-
 .home {
   display: grid;
   justify-self: center;
@@ -449,7 +448,7 @@ h2 {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   justify-self: center;
-  width: 100%;
+  width: 90%;
 }
 
 .new-post img {
@@ -471,6 +470,7 @@ h2 {
 
 .timeline {
   margin-top: 20px;
+  width: 90%;
 }
 
 /* ALL USERS PAGE */
@@ -552,6 +552,73 @@ h2 {
   padding: 0 15px;
   border: 1px solid rgba(0, 0, 0, 0.212);
   font-size: 1.5em;
+}
+
+@media (max-width: 1078px) {
+  .posts {
+    width: 100%;
+  }
+
+  #comment_content {
+    width: 30em;
+  }
+}
+
+@media (max-width: 766px) {
+  #comment_content {
+    width: 20em;
+  }
+
+  .comment-content p {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 693px) {
+  header .user {
+    width: 100px;
+  }
+
+  header a {
+    font-size: 75%;
+  }
+
+  #post_content {
+    width: 30em;
+  }
+  
+  .friends {
+    width: 100%;
+  }
+  .post {
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  #comment_content {
+    width: auto;
+  }
+
+  .comment-content p {
+    max-width: 200px;
+  }
+
+  #post_content {
+    width: auto;
+  }
+
+  .friends {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .posts {
+    grid-column: 1 / -1;
+    justify-self: center;
+    grid-row: 2 / -1;
+    margin-top: 20px;
+  }
 }
 
 
