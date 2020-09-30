@@ -4,7 +4,7 @@
       <div class="post">
         <div class="poster">
           <% if post.user.avatar %>
-            <%= image_tag post.user.avatar if user.avatar != nil %>
+            <%= image_tag post.user.avatar if post.user.avatar != nil %>
           <% end %>
           <%=link_to post.user.username, user_path(post.user) %>
         </div>
