@@ -19,7 +19,9 @@
     <% @user.friends.each do |friend| %>
       <div class="friend"> 
         <% if friend.avatar %>
-          <%= image_tag friend.avatar  if friend.avatar != nil %>
+          <% if friend.avatar != nil %>
+            <%= image_tag friend.avatar %>
+          <% end %>
         <% end %>
         <%=link_to friend.username, user_path(friend) %>
       </div>

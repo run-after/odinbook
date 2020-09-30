@@ -4,7 +4,9 @@
       <div class="post">
         <div class="poster">
           <% if post.user.avatar %>
-            <%= image_tag post.user.avatar if post.user.avatar != nil %>
+            <% if post.user.avatar != nil %>
+              <%= image_tag post.user.avatar %>
+            <% end %>
           <% end %>
           <%=link_to post.user.username, user_path(post.user) %>
         </div>
@@ -26,7 +28,9 @@
         </div>
         <div class="new-comment">
           <% if @current_user.avatar %>
-            <%= image_tag current_user.avatar if current_user.avatar != nil %>
+            <% if current_user.avatar != nil %>
+              <%= image_tag current_user.avatar %>
+            <% end %>
           <% end %>
           <%= render 'layouts/comment_form', post: post %>
         </div>

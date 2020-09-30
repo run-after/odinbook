@@ -7,7 +7,9 @@
           <% unless user == current_user %>
             <li class="user">
               <% if user.avatar %>
-                <%= image_tag user.avatar if user.avatar != nil %>
+                <% if user.avatar != nil %>
+                  <%= image_tag user.avatar %>
+                <% end %>
               <% end %>
               <%=link_to user.username, user_path(user) %> 
               <% unless current_user.friends.include?(user) || !FriendRequest.where({requester_id: current_user.id, user_id: user.id}).empty? %>
