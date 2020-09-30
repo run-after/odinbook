@@ -1,9 +1,7 @@
 <div class="home">
   <div class="new-post">
     <% if current_user.avatar %>
-      <% if current_user.avatar != nil %>
-        <%= image_tag current_user.avatar %>
-      <% end %>
+      <%= image_tag current_user.avatar if current_user.avatar.attached? %>
     <% end %>
     <%= render 'post_form' %>
   </div>

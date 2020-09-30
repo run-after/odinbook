@@ -4,9 +4,7 @@
       <div class="comment">
         <div class="comment-img">
         <% if comment.user.avatar %>
-          <% if comment.user.avatar != nil %>
-            <%= image_tag comment.user.avatar %>
-          <% end %>
+          <%= image_tag comment.user.avatar if comment.user.avatar.attached? %>
         <% end %>
         </div>
         <div class="comment-content">
