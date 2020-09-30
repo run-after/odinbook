@@ -3,8 +3,8 @@
     <% post.comments.each do |comment| %>
       <div class="comment">
         <div class="comment-img">
-        <% if comment.user.avatar if comment.user.avatar != nil %>
-          <%= image_tag comment.user.avatar %>
+        <% if comment.user.avatar %>
+          <%= image_tag comment.user.avatar if comment.user.avatar != nil%>
         <% end %>
         </div>
         <div class="comment-content">
