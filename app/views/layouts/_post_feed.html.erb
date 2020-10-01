@@ -3,8 +3,8 @@
     <% @posts.each do |post| %>
       <div class="post">
         <div class="poster">
-          <% if post.user.avatar %>
-            <%= image_tag post.user.avatar if post.user.avatar.attached? %>
+          <% if post.user.avatar.attached? %>
+            <%= image_tag post.user.avatar, class: "avatar-image" %>
           <% end %>
           <%=link_to post.user.username, user_path(post.user) %>
         </div>
@@ -25,8 +25,8 @@
           <%= render 'layouts/comments_feed', post: post %>
         </div>
         <div class="new-comment">
-          <% if @current_user.avatar %>
-            <%= image_tag current_user.avatar if current_user.avatar.attached? %>
+          <% if @current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "avatar-image" %>
           <% end %>
           <%= render 'layouts/comment_form', post: post %>
         </div>

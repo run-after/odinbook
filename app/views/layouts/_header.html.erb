@@ -17,30 +17,9 @@
     </li>
     <li class="nav-item ml-auto">
       <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar, class: "avatar-image" %>
+        <%= image_tag current_user.avatar, class: "avatar-image d-inline" %>
       <% end %>
-      <%= link_to current_user.username, user_path(current_user), class: "text-white pr-4 nav-link user-name" %>
+      <%= link_to current_user.username, user_path(current_user), class: "text-white pr-4 nav-link d-inline" %>
     </li>
   </ul>
 </div>
-
-
-
-
-
-
-<!--
-
-<div class="navbar-nav navbar-expand-sm">
-  <%= link_to "All users", users_path, class: "text-white pr-4" %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white pr-4" %>
-
-  <% if current_user.friend_requests.any? %>
-    <a class="request"><%= link_to "Friend requests", new_friendship_path, class: "text-white pr-4" %></a>
-  <% end %>
-
-
-  <%= link_to current_user.username, user_path(current_user), class: "text-white" %>
-        
-</div>
--->
