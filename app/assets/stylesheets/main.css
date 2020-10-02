@@ -18,15 +18,59 @@ a:hover {
   border-radius: 20px;
 }
 
+.post-date {
+  font-size: 0.75em;
+}
+
+.emoji {
+  color: transparent;  
+  text-shadow: 0 0 0 white;
+}
+
+.blank-user {
+  background: rgba(60, 180, 255, 0.5);
+}
+
+.comment {
+  background: rgba(211, 211, 211, 0.527);
+  border-radius: 20px;
+  max-width: 89%;
+}
+.comments {
+  border: none;
+}
+
 /* MEDIA QUERY */
 @media (max-width: 370px) {
   .new-post textarea {
     width: 100px;
   }
+  .comment {
+    max-width: 200px;
+  }
 }
+
+
+
+
+
+
 
 /* TEMP */
 .comment-content {
   width: 100px;
   word-wrap: break-word;
+}
+
+header {
+  top: 0;
+  z-index: 1;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+main {
+  margin-top: 80px;
 }

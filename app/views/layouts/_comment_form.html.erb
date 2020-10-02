@@ -1,5 +1,5 @@
-<%= form_with model: @comment do |f| %>
+<%= form_with model: @comment, class: "d-flex align-items-center flex-grow-1" do |f| %>
   <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.text_area :content, :placeholder => "Write a comment" %>
-  <%= f.submit "Comment", :class => "btn" %>
+  <%= f.text_area :content, placeholder: "\n  Write a comment", class: "my-2 flex-grow-1" %>
+  <%= f.submit "💬", class: "btn btn-primary ml-2" %>
 <% end %>

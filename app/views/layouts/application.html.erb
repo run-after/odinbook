@@ -11,8 +11,9 @@
   </head>
 
   <body>
-  <header>
+  <header class="container-fluid position-fixed ml-0">
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    
       <%= link_to "OdinBook", root_path, class: "h1 text-white font-weight-bold text-decoration-none" %>
 
       <% if current_user %>
@@ -22,7 +23,7 @@
     </nav>
   </header>
   <main>
-    <div class="container">
+    <div class="container mt-1">
       <% if flash.any? %>
         <div class="flash-message">
           <% flash.each do |type, msg| %>

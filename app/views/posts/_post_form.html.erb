@@ -1,4 +1,4 @@
 <%= form_with model: @post, class: "d-flex align-items-center flex-grow-1", local: true do |f| %>
-  <%= f.text_area :content, placeholder: "Create Post", class: "my-2 flex-grow-1"%>
+  <%= f.text_area :content, placeholder: "\n  Create Post", class: "my-2 flex-grow-1"%>
   <%= f.submit "Post", class: "btn btn-primary ml-2" %>
 <% end %>
