@@ -50,6 +50,19 @@ a:hover {
   background: white;
 }
 
+ul {
+  list-style: none;
+}
+
+.user-list {
+  background: white;
+}
+
+.user {
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  width: 45%;
+}
+
 /* MEDIA QUERY */
 @media (max-width: 370px) {
   .new-post textarea {
@@ -80,3 +93,6 @@ main {
   max-width: 1100px;
   margin: 80px auto 0 auto;
 }
+
+
+
