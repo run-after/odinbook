@@ -6,6 +6,27 @@ a:hover {
   opacity: 0.5;
 }
 
+.devise-box {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.devise-box input {
+  width: 100%;
+}
+
+#new_user > * {
+  margin-bottom: 5px;
+}
+
+.devise-box > * {
+  margin-bottom: 5px;
+}
+
 .avatar-image {
   border-radius: 100%;
   height: 40px;
@@ -60,7 +81,7 @@ ul {
 
 .user {
   border: 1px solid rgba(0, 0, 0, 0.267);
-  width: 45%;
+  width: 49%;
 }
 
 /* MEDIA QUERY */
