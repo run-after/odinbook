@@ -1,10 +1,10 @@
 <% if @posts && @posts.any? %>
   <% @posts.each do |post| %>
-    <div class="card my-2">
+    <div class="card my-2 mx-auto">
       <div class="card-header d-flex justify-content-between">
         <div class="d-inline-flex align-items-center">
           <% if post.user.avatar.attached? %>
-            <%= image_tag post.user.avatar, class: "avatar-image" %>
+            <%= image_tag post.user.avatar, class: "avatar-image mr-2" %>
           <% else %>
             <div class="blank-user avatar-image d-inline-flex justify-content-center align-items-center mr-2">
               <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -51,5 +51,7 @@
   <% end %>
   
 <% else %>
-  Nothing here!
+  <div class="card mt-2 p-5">
+    <p class="text-center">Nothing here!</p>
+  </div>
 <% end %>

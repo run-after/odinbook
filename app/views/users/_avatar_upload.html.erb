@@ -1,15 +1,18 @@
 <div class="avatar-update">
-  Update image
-  <%= form_with(model: @user, method: :patch, local: true) do |f| %>
-  <div class="filler">
-    <label class="btn browse-btn">
+  <p class="d-flex justify-content-center">Update image</p>
+  <%= form_with model: @user, method: :patch, local: true do |f| %>
+ <!---->
+ 
+  <div class="d-inline-flex">
+    <label class="btn btn-primary">
       Browse...
       <span style="display: none;">
         <%= f.file_field :avatar %>
       </span>
     </label>
   </div>
+  <!---->
     <%#= f.file_field :avatar %>
-    <%= f.submit "Update avatar", :class => "btn" %>
+    <%= f.submit "Update avatar", :class => "btn btn-primary" %>
   <% end %>
 </div>

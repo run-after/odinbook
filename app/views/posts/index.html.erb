@@ -1,6 +1,6 @@
-<div class="new-post col-md-12 d-flex inline-flex align-items-center">
+<div class="new-post d-flex inline-flex align-items-center mx-auto">
   <% if current_user.avatar.attached? %>
-      <%= image_tag current_user.avatar, class: "avatar-image mr-2" %>
+      <%= image_tag current_user.avatar, class: "avatar-image mx-2" %>
     <% else %>
       <div class="blank-user avatar-image d-inline-flex justify-content-center align-items-center mr-2">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
