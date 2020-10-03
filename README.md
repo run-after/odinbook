@@ -3,8 +3,6 @@ ODINBOOK
 This is the final project for the Rails section of The Odin Project
 (https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
-This project doesn't focus on stying, just the back end.
-
 In this project I modeled Users, Posts, Comments, Likes, Friend Requests, and Friendships. Assosciated all of the models, and created all the views/controllers to display the information.
 
 I generated a mailer to welcome a new user.
@@ -15,4 +13,9 @@ I also used Active Storage to attach an avatar photo.
 
 I used AWS S3 via Active Storage to attach avatar photo in production.
 
-I used a basic styling to make it reasonable to look at, but didn't focus too heavily on it.
+I used Bootstrap to style this site to make it mobile responsive.
+
+You can use this by logging in with: 
+
+Email: 'test@test.com'
+Password: 'password'
