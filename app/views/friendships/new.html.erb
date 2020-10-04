@@ -8,7 +8,7 @@
     
       <% @requests.each do |request| %>
         
-          <li class="user p-2 mx-auto d-flex align-items-center my-1 rounded"> 
+          <li class="user p-2 mx-1 d-flex align-items-center my-1 rounded"> 
             <% if User.find(request.requester_id).avatar.attached? %>
               <%= image_tag User.find(request.requester_id).avatar, class: "avatar-image mr-2"%>
             <% else %>
@@ -19,7 +19,7 @@
               </div>
             <% end %>
             <%= link_to User.find(request.requester_id).username, user_path(request.requester_id), class: "mr-2" %> 
-            <%= link_to "Accept request", friendships_path(friend_id: request.requester_id), method: :post, class: "ml-4 btn btn-secondary p-1 my-2" %>
+            <%= link_to "Accept request", friendships_path(friend_id: request.requester_id), method: :post, class: "ml-4 btn btn-secondary p-1 my-2 ml-auto" %>
           </li>
       
       <% end %>
