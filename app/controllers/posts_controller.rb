@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       #reload page
       redirect_back(fallback_location: user_path(current_user))
     else
-      flash.now[:alert] = "Error creating post"
+      flash.now[:danger] = "Error creating post"
       render :index
     end
   end

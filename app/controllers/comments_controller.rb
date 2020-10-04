@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created!"
       redirect_back(fallback_location: user_path(current_user))
     else
-      flash[:alert] = "Error creating comment"
+      flash[:danger] = "Error creating comment"
       redirect_back(fallback_location: user_path(current_user))
     end
   end
