@@ -2,6 +2,20 @@ body {
   background: #f0f2f5;
 }
 
+header {
+  top: 0;
+  z-index: 1;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+main {
+  max-width: 1100px;
+  margin: 80px auto 0 auto;
+}
+
 a:hover {
   opacity: 0.5;
 }
@@ -81,8 +95,9 @@ ul {
 
 .user {
   border: 1px solid rgba(0, 0, 0, 0.267);
- 
 }
+
+
 
 /* MEDIA QUERY */
 @media (max-width: 370px) {
@@ -93,27 +108,3 @@ ul {
     max-width: 200px;
   }
 }
-
-
-
-
-
-
-
-/* TEMP */
-header {
-  top: 0;
-  z-index: 1;
-}
-
-.container-fluid {
-  padding: 0;
-}
-
-main {
-  max-width: 1100px;
-  margin: 80px auto 0 auto;
-}
-
-
-
